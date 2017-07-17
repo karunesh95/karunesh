@@ -6,7 +6,9 @@ def opn(choice,x,y):
     if choice==3:
         ans=x*y
     if choice==4:
+        if int(y)==0: print ("----")
         ans=x/y
+        
     print ("Answer for the opn is %f"%ans)
     x=int(raw_input("1.Continue  2.Exit"))
     if x==1:
@@ -27,11 +29,9 @@ def Check():
         x=(raw_input("CHOOSE a"))
         print x
         y=(raw_input("CHOOSE b"))
-        print y
-        if lam==4 and y==0:
+        if int(y)==0 and (lam==4):
             print("Opn is divide and b=0.Choose Again")
             Check()
-        
         regex = re.compile(r'(\d+|\s+)')  #####
         A=regex.split(str(x))
         lam1=True
@@ -47,5 +47,11 @@ def Check():
             print("Improper Inputs")
             Check()
         return(opn(lam,float(x),float(y)))
-        
+
+
+
+
+############################
+import logging
+logging.warning('Watch out!')
 Check()
